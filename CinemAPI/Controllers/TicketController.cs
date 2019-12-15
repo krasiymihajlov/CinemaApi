@@ -59,7 +59,6 @@ namespace CinemAPI.Controllers
 
         public IHttpActionResult WithReservation(ReservationCreationModel reservation)
         {
-            CheckProjctionReservation();
             IReservationCreation currentReservation = this.reservationRepo.GetByUniqueId(reservation.UniqueId);
             if (currentReservation == null)
             {
@@ -83,7 +82,6 @@ namespace CinemAPI.Controllers
         [HttpPost]
         public IHttpActionResult WithoutReservation(TicketCreationModel currentTicket)
         {
-            CheckProjctionReservation();
             NewTicketSummary ticket = newTicket.New(new Ticket(currentTicket.ProjectionId, currentTicket.Row, currentTicket.Column));
 
             if (ticket.IsCreated)

@@ -45,8 +45,6 @@ namespace CinemAPI.Controllers
         [HttpPost]
         public IHttpActionResult Index(ReservationCreationModel reservation)
         {
-            CheckProjctionReservation();
-
             if (reservation == null || reservation.ProjectionId.Equals(0))
             {
                 return BadRequest();

@@ -45,8 +45,6 @@ namespace CinemAPI.Controllers
         [HttpGet]
         public IHttpActionResult GetAvailableSeats(int id)
         {
-            CheckProjctionReservation();
-
             IProjection projection = this.projectionRepository.GetById(id);
 
             if (projection == null)
